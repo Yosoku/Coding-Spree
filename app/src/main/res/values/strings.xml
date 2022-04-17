@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Coding Spree</string>
+    <string name="play_button">Play</string>
+    <string name="profile_button">Profile</string>
+    <string name="exit_button">Exit</string>
+</resources>
