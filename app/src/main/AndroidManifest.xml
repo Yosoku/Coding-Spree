@@ -10,7 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CodingSpree">
         <activity
-            android:name=".Homepage"
+            android:name=".activities.Quiz"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LanguageSelection"
+            android:exported="false" />
+        <activity
+            android:name=".activities.Profile"
+            android:exported="true" />
+        <activity
+            android:name=".activities.Homepage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
