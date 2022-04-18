@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!--my colors-->
+    <color name="mywhite">#eeeeee</color>
+    <color name="orange">#ff5722</color>
+    <color name="darkgray">#393E46</color>
+    <color name="darkdarkgray">#222831</color>
+
 </resources>
