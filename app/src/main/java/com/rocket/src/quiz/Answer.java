@@ -2,7 +2,7 @@ package com.rocket.src.quiz;
 
 public class Answer {
     private final String answer;
-    boolean isCorrect;
+    private boolean isCorrect;
 
     public Answer(String answer) {
         this.answer = answer;
