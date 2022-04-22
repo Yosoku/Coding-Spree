@@ -7,13 +7,12 @@
     <string name="cpp">C++</string>
     <string name="python">Python</string>
     <string name="java">Java</string>
+    <string name="question">Question</string>
+    <string name="answer">Your answer</string>
+    <string name="correct_answer">Correct Answer</string>
     <!--styles-->
     <style name="Button.White" parent="ThemeOverlay.AppCompat">
         <item name="colorAccent">@color/white</item>
     </style>
-    <!-- Button dimensions-->
-
-    <dimen name="button_width">164dp</dimen>
-    <dimen name="button_height">48dp</dimen>
 
 </resources>
