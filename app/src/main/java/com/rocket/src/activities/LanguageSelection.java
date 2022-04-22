@@ -14,12 +14,11 @@ public class LanguageSelection extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_language_selection);
-        javaButton = (Button) findViewById(R.id.java_selection_btn);
-        cppButton = (Button) findViewById(R.id.cpp_selection_btn);
-        pythonButton = (Button) findViewById(R.id.python_selection_btn);
-        backButton = (Button)findViewById(R.id.selection_back_button);
+        javaButton =  findViewById(R.id.java_selection_btn);
+        cppButton = findViewById(R.id.cpp_selection_btn);
+        pythonButton =  findViewById(R.id.python_selection_btn);
+        backButton = findViewById(R.id.selection_back_button);
         // Event Listeners
         javaButton.setOnClickListener(this);
         cppButton.setOnClickListener(this);
@@ -37,6 +36,5 @@ public class LanguageSelection extends AppCompatActivity implements View.OnClick
         Intent intent = new Intent(this,Quiz.class);
         intent.putExtra("Language",clicked.getText());
         startActivity(intent);
-
     }
 }
