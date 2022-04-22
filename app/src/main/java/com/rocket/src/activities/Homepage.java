@@ -21,9 +21,9 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener 
         Log.d("OnCreate","Constructor called");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        playButton = ((Button) findViewById(R.id.play_button));
-        profileButton = ((Button) findViewById(R.id.profile_button));
-        exitButton = ((Button) findViewById(R.id.exit_button));
+        playButton =  findViewById(R.id.play_button);
+        profileButton =  findViewById(R.id.profile_button);
+        exitButton =  findViewById(R.id.exit_button);
         // Setting up listeners
         playButton.setOnClickListener(this);
         profileButton.setOnClickListener(this);
