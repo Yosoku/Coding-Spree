@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CodingSpree">
         <activity
+            android:name=".activities.Results"
+            android:exported="false" />
+        <activity
             android:name=".activities.Quiz"
             android:exported="false" />
         <activity
