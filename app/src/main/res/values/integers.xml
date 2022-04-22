@@ -1,0 +1,10 @@
+<resources>
+
+    <integer name="number_of_turns">10</integer>
+
+    <!-- Button dimensions-->
+
+    <dimen name="button_width">164dp</dimen>
+    <dimen name="button_height">48dp</dimen>
+
+</resources>
