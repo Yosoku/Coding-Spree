@@ -3,81 +3,118 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/palette_white"
     tools:context=".activities.Results">
 
     <TextView
-        android:id="@+id/resultTextView"
+        android:id="@+id/res_greeting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="48dp"
+        android:background="@color/palette_white"
+        android:text="@string/res_greeting"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/palette_black"
+        app:layout_constraintBottom_toTopOf="@+id/res_correct_answers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/res_correct_answers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:text="@string/res_correct_answers"
+        android:textColor="@color/green"
+        app:layout_constraintBottom_toTopOf="@+id/res_wrong_answers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/res_greeting" />
+
+    <TextView
+        android:id="@+id/res_wrong_answers"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/res_wrong_answers"
+        android:textColor="@color/red"
+        app:layout_constraintBottom_toTopOf="@+id/res_percentile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/res_correct_answers" />
+
+    <TextView
+        android:id="@+id/res_percentile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:text="@string/res_percentile"
+        android:textColor="@color/palette_black"
+        app:layout_constraintBottom_toTopOf="@+id/res_level"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/res_wrong_answers" />
+
+    <TextView
+        android:id="@+id/res_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/res_level"
+        android:textColor="@color/palette_black"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintTop_toBottomOf="@+id/res_percentile" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_results"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="0dp"
-        android:layout_height="354dp"
-        android:layout_marginTop="21dp"
+        android:layout_height="213dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintBottom_toTopOf="@+id/res_summary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_header_question" />
+        app:layout_constraintTop_toBottomOf="@+id/res_level"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <TextView
-        android:id="@+id/tv_header_question"
+        android:id="@+id/res_summary"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:text="@string/question"
-        app:layout_constraintBottom_toTopOf="@+id/rv_results"
-        app:layout_constraintEnd_toStartOf="@+id/tv_header_user_answer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultTextView" />
-
-    <TextView
-        android:id="@+id/tv_header_user_answer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:text="@string/answer"
-        app:layout_constraintBottom_toTopOf="@+id/rv_results"
-        app:layout_constraintEnd_toStartOf="@+id/tv_header_correct_answer"
-        app:layout_constraintStart_toEndOf="@+id/tv_header_question"
-        app:layout_constraintTop_toBottomOf="@+id/resultTextView" />
-
-    <TextView
-        android:id="@+id/tv_header_correct_answer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:text="@string/correct_answer"
-        app:layout_constraintBottom_toTopOf="@+id/rv_results"
+        android:layout_height="105dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/res_summary"
+        android:textColor="@color/red"
+        app:layout_constraintBottom_toTopOf="@+id/home_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_header_user_answer"
-        app:layout_constraintTop_toBottomOf="@+id/resultTextView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/result_screen_back_button"
+        android:id="@+id/home_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="293dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:text="@string/back_button"
+        android:backgroundTint="@color/palette_orange"
+        android:text="@string/home"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/rv_results"
-        app:layout_constraintTop_toBottomOf="@+id/rv_results"
-        app:layout_constraintVertical_bias="0.0" />
-
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/res_summary" />
 </androidx.constraintlayout.widget.ConstraintLayout>
