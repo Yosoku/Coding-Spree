@@ -10,9 +10,34 @@
     <string name="question">Question</string>
     <string name="answer">Your answer</string>
     <string name="correct_answer">Correct Answer</string>
-    <!--styles-->
-    <style name="Button.White" parent="ThemeOverlay.AppCompat">
-        <item name="colorAccent">@color/white</item>
-    </style>
+    <string name="result_percentage">%.2f %%</string>
+    <!--Quiz game components-->
+    <string name="question_number_header">Question <b>%d</b></string>
+    <string name="button_a">A</string>
+    <string name="button_b">B</string>
+    <string name="button_c">C</string>
+    <string name="button_d">D</string>
 
+    <string name="language">Language</string>
+    <string name="total_answers">Total answers</string>
+    <string name="next">Next</string>
+
+    <!-- Result screen components-->
+    <string name="res_greeting">%s %s</string>
+    <string name="res_correct_answers">Correct Answers %d</string>
+    <string name="res_wrong_answers">Wrong Answers %d</string>
+    <string name="res_percentile">Percentile %.2f %%</string>
+    <string name="res_level">Level : %s</string>
+    <string name="res_summary">%s</string>
+    <string name="home">Home</string>
+    <string name="about">About</string>
+    <!-- About screen components-->
+    <string name="view_source">You can view the source code at github</string>
+    <string name="summary">Coding spree is a minimalistic quiz app with
+    programming questions. It uses markdown parsing to render code in
+        your app screen to avoid overhead. The apps whole purpose is to
+    help people learn the basics of a Programming language by solving
+        simple quiz style questions.</string>
+    <string name="the_team">Architecture design and implementation
+        <b>Edward Koulakidis</b> </string>
 </resources>
