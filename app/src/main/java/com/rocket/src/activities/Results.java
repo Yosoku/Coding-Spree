@@ -5,40 +5,40 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.rocket.src.R;
 import com.rocket.src.quiz.QuizGame;
-import com.rocket.src.viewcomponents.RecyclerAdapter;
+import com.rocket.src.viewcomponents.ResultData;
 
 public class Results extends AppCompatActivity implements View.OnClickListener {
-    private RecyclerView recyclerView;
-    private TextView scoreView;
+    private TextView greetingView,wrongView,correctView,levelView,
+            percentileView,summaryView;
+    private ImageView image;
     private Button backButton;
+    private QuizGame game;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
-        QuizGame results = (QuizGame) getIntent().getSerializableExtra("Result");
-        backButton = findViewById(R.id.result_screen_back_button);
-        backButton.setOnClickListener(this);
-        scoreView = ((TextView) findViewById(R.id.resultTextView));
-        scoreView.setText(String.valueOf(results.calculateResults()));
-        recyclerView = findViewById(R.id.rv_results);
-        RecyclerAdapter adapter =
-                new RecyclerAdapter(results.getScoreAnswers());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
+        game = (QuizGame) getIntent().getSerializableExtra(
+               "Result");
+        float score = game.calculateResults();
+        ResultData data = ResultData.FromPercentile(score);
+        data.NAME = (String) getIntent().getExtras().get("Name");
+        data.PERCENTILE = score;
+        initComponents(data);
+//        //backButton.setOnClickListener(this);
+//        //scoreView = ((TextView) findViewById(R.id.resultTextView));
+//        float score =  quizGame.calculateResults()*100f;
+//        String scoreString = getString(R.string.result_percentage,score);
+//       // scoreView.setText(scoreString);
     }
 
     @Override
@@ -46,5 +46,23 @@ public class Results extends AppCompatActivity implements View.OnClickListener {
         startActivity(new Intent(this, Homepage.class));
     }
 
+    private void initComponents(ResultData data){
+        greetingView = findViewById(R.id.res_greeting);
+        wrongView = findViewById(R.id.res_wrong_answers);
+        correctView = findViewById(R.id.res_correct_answers);
+        percentileView = findViewById(R.id.res_percentile);
+        levelView = findViewById(R.id.res_level);
+        summaryView = findViewById(R.id.res_summary);
+        backButton = findViewById(R.id.home_button);
+        backButton.setOnClickListener(this);
+
+        greetingView.setText(getString(R.string.res_greeting,data.GREETING,
+                data.NAME));
+        wrongView.setText(getString(R.string.res_wrong_answers,game.WRONG));
+        correctView.setText(getString(R.string.res_correct_answers,game.CORRECT));
+        percentileView.setText(getString(R.string.res_percentile,data.PERCENTILE));
+        levelView.setText(getString(R.string.res_level,data.LEVEL));
+        summaryView.setText(getString(R.string.res_summary,data.SUMMARY));
+        }
 
 }
