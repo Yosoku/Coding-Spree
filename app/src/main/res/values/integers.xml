@@ -1,6 +1,6 @@
 <resources>
 
-    <integer name="number_of_turns">10</integer>
+    <integer name="number_of_turns">3</integer>
 
     <!-- Button dimensions-->
 
