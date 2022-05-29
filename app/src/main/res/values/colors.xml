@@ -8,9 +8,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <!--my colors-->
-    <color name="mywhite">#eeeeee</color>
-    <color name="orange">#ff5722</color>
-    <color name="darkgray">#393E46</color>
-    <color name="darkdarkgray">#222831</color>
+
+
+    <color name="palette_white">#eeeeee</color>
+    <color name="palette_orange">#ff5722</color>
+    <color name="palette_dark_gray">#393E46</color>
+    <color name="palette_black">#222831</color>
+    <color name="green">#138808</color>
+    <color name="red">#750000</color>
 
 </resources>
