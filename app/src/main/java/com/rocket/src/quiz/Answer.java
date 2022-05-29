@@ -3,6 +3,7 @@ package com.rocket.src.quiz;
 import androidx.annotation.NonNull;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Class representing an Answer to a Quiz application,the Answer has 2
@@ -32,6 +33,18 @@ public class Answer implements Serializable {
         this.isCorrect = false;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Answer answer1 = (Answer) o;
+        return answer.equals(answer1.answer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(answer);
+    }
 
     public String getAnswer() {
         return answer;
