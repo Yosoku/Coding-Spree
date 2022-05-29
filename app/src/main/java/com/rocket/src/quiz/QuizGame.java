@@ -1,6 +1,10 @@
 package com.rocket.src.quiz;
 
 import android.content.Context;
+import android.os.Build;
+import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import com.rocket.src.dbms.QueryWrapper;
 
@@ -10,16 +14,18 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class QuizGame implements Serializable {
-    Queue<QuizQuestion> questions;
-    HashMap<QuizQuestion,Answer> scoreAnswers;
+    private Queue<QuizQuestion> questions;
+    private HashMap<QuizQuestion,Answer> scoreAnswers;
+    private int rounds;
+    public int CORRECT=0;
+    public int WRONG = 0;
 
     public HashMap<QuizQuestion, Answer> getScoreAnswers() {
         return scoreAnswers;
     }
-
     /**
      * Starts a quiz game with a number of rounds
      *
@@ -27,16 +33,20 @@ public class QuizGame implements Serializable {
      * @param language The programming language for theme of the questions
      */
     public QuizGame(String language, int rounds, Context context) {
+        this.rounds = rounds;
         QueryWrapper wrapper = new QueryWrapper(context);
+        Log.d("ROUNDS",String.valueOf(rounds));
         List<QuizQuestion> q = wrapper.getAllQuestions(language);
-        int index = new Random().nextInt(q.size()-rounds); // A way to get more distributed questions
-        questions = new LinkedList<>( q.subList(index,index+rounds));
-        Collections.shuffle((List<?>) questions);
+        Collections.shuffle(q);
+        questions = new LinkedList<>(q.subList(0,rounds));
         scoreAnswers = new HashMap<QuizQuestion,Answer>();
     }
-
     public void mapAnswerToQuestion(QuizQuestion question,Answer answer){
         scoreAnswers.put(question,answer);
+        if(question.getCorrectAnswer().equals(answer))
+            CORRECT++;
+        else
+            WRONG++;
     }
     /**
      * API call to get the next QuizQuestion and remove it from the Queue. Internally uses `poll()`
@@ -50,9 +60,15 @@ public class QuizGame implements Serializable {
     /**
      * Should be called after the game is finished. The method returns the
      * results for the current game
-     * @return
+     * @return a percentage depicting the results for a game
      */
-    public int calculateResults(){
-        return 1; //TODO add login to result calculation
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public float calculateResults(){
+        final Integer[] score = {0};
+        scoreAnswers.forEach((K,V)->{
+            if(K.getCorrectAnswer().equals(V)) score[0]++;
+        });
+        Log.d("CALCULATE", String.valueOf(score[0]));
+        return score[0]/(float)rounds;
     }
 }
