@@ -34,11 +34,6 @@ public class Results extends AppCompatActivity implements View.OnClickListener {
         data.NAME = (String) getIntent().getExtras().get("Name");
         data.PERCENTILE = score;
         initComponents(data);
-//        //backButton.setOnClickListener(this);
-//        //scoreView = ((TextView) findViewById(R.id.resultTextView));
-//        float score =  quizGame.calculateResults()*100f;
-//        String scoreString = getString(R.string.result_percentage,score);
-//       // scoreView.setText(scoreString);
     }
 
     @Override
@@ -55,7 +50,9 @@ public class Results extends AppCompatActivity implements View.OnClickListener {
         summaryView = findViewById(R.id.res_summary);
         backButton = findViewById(R.id.home_button);
         backButton.setOnClickListener(this);
+        image = findViewById(R.id.level_image);
 
+        image.setImageResource(data.IMAGEID);
         greetingView.setText(getString(R.string.res_greeting,data.GREETING,
                 data.NAME));
         wrongView.setText(getString(R.string.res_wrong_answers,game.WRONG));
