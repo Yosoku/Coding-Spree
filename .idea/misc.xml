@@ -8,7 +8,7 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.297" />
         <entry key="app/src/main/res/layout/activity_language_selection.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_question_view.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_quiz.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_results.xml" value="0.33" />
