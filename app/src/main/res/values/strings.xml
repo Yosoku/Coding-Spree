@@ -32,12 +32,15 @@
     <string name="home">Home</string>
     <string name="about">About</string>
     <!-- About screen components-->
-    <string name="view_source">You can view the source code at github</string>
+    <string name="view_source">You can view the source code at <a
+        href="https://github.com/Yosoku/Coding-Spree">Github</a></string>
     <string name="summary">Coding spree is a minimalistic quiz app with
     programming questions. It uses markdown parsing to render code in
         your app screen to avoid overhead. The apps whole purpose is to
     help people learn the basics of a Programming language by solving
-        simple quiz style questions.</string>
-    <string name="the_team">Architecture design and implementation
-        <b>Edward Koulakidis</b> </string>
+        simple quiz style questions. </string>
+    <string name="the_team">        Design and implementation <b>Edward
+        Koulakidis</b>
+        Python script <b>Alexandros Wawaroutas</b>
+        Report <b>Antonis Eskitzis</b></string>
 </resources>
